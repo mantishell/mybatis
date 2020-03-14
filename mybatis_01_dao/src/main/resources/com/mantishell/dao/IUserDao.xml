@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace写的是dao的全限定类名-->
+<mapper namespace="com.mantishell.dao.IUserDao">
+    <!--id是dao的方法名称；resultType表示返回的类型-->
+    <select id="findAll" resultType="com.mantishell.domain.User" >
+        select * from user
+    </select>
+</mapper>

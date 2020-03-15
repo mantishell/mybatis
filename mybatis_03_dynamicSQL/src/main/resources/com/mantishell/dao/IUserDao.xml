@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace：dao的全限定类名-->
+<mapper namespace="com.mantishell.dao.IUserDao">
+
+    <select id="findAll" resultType="com.mantishell.domain.User">
+        select * from user;
+    </select>
+
+    <select id="findById" parameterType="int" resultType="com.mantishell.domain.User">
+        select * from user where id=#{userid}
+    </select>
+
+    <!--模糊查询-->
+    <select id="findByName" parameterType="String" resultType="com.mantishell.domain.User">
+         select * from user where name like #{user}
+        <!--select * from user where name like '%${value}%' 这里的${value}是固定的-->
+    </select>
+
+    <!--根据实体类对象查询-->
+    <select id="findUserByVo" parameterType="com.mantishell.domain.QueryVo" resultType="com.mantishell.domain.User">
+        select * from user where name like #{user.name}
+    </select>
+
+    <!--动态查询-->
+    <!--<select id="findUserByCondition" resultType="com.mantishell.domain.User" parameterType="com.mantishell.domain.User">
+        select * from user where 1=1
+        <if test="name!=null">
+            and name = #{name}
+        </if>
+        <if test="sex!=null">
+            and sex=#{sex}
+        </if>
+    </select>-->
+
+    <!--与上面方式结果相同，但是这里不需要写where 1=1 -->
+    <select id="findUserByCondition" resultType="com.mantishell.domain.User" parameterType="com.mantishell.domain.User">
+        select * from user
+        <where>
+            <if test="name!=null">
+                and name=#{name}
+            </if>
+            <if test="sex!=null">
+                and sex=#{sex}
+            </if>
+        </where>
+    </select>
+
+    <select id="findUserInIds" resultType="com.mantishell.domain.User" parameterType="com.mantishell.domain.QueryVo">
+        select * from user
+        <where>
+            <if test="ids != null and ids.size()>0">
+                <foreach collection="ids" open="and id in(" close=")" item="uid" separator=",">
+                    #{uid}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

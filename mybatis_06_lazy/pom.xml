@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mantishell</groupId>
-    <artifactId>mybatis_annotation_simple</artifactId>
+    <artifactId>mybatis_06_lazy</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>

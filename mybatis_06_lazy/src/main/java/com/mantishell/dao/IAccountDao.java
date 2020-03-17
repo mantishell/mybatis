@@ -1,0 +1,21 @@
+package com.mantishell.dao;
+
+import com.mantishell.domain.Account;
+
+import java.util.List;
+
+public interface IAccountDao {
+    /**
+     * 查询所有用户，同时获取到用户下所有账户的信息
+     * @return
+     */
+    List<Account> findAll();
+
+
+    /**
+     * 根据用户id查询账户信息
+     * @param uid
+     * @return
+     */
+    List<Account> findAccountByUid(Integer uid);
+}

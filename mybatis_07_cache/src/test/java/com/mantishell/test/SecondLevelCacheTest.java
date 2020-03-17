@@ -11,11 +11,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
-import java.util.List;
 
-public class UserTest {
+public class SecondLevelCacheTest {
 
     private InputStream in;
+    private SqlSessionFactory factory;
     private SqlSession sqlSession;
     private IUserDao userDao;
 
@@ -24,7 +24,7 @@ public class UserTest {
         //1.读取配置文件，生成字节输入流
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         //2.获取SqlSessionFactory
-        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+        factory = new SqlSessionFactoryBuilder().build(in);
         //3.获取SqlSession对象
         sqlSession = factory.openSession(true);
         //4.获取dao的代理对象
@@ -41,15 +41,22 @@ public class UserTest {
     }
 
     /**
-     * 测试查询所有
+     * 测试一级缓存
      */
     @Test
-    public void testFindAll(){
-        List<User> users = userDao.findAll();
-//        for(User user : users){
-//            System.out.println("-----每个用户的信息------");
-//            System.out.println(user);
-//            System.out.println(user.getAccounts());
-//        }
+    public void testFirstLevelCache(){
+        SqlSession sqlSession1 = factory.openSession();
+        IUserDao dao1 = sqlSession1.getMapper(IUserDao.class);
+        User user1 = dao1.findById(41);
+        System.out.println(user1);
+        sqlSession1.close();//一级缓存消失
+
+        SqlSession sqlSession2 = factory.openSession();
+        IUserDao dao2 = sqlSession2.getMapper(IUserDao.class);
+        User user2 = dao2.findById(41);
+        System.out.println(user2);
+        sqlSession2.close();
+
+        System.out.println(user1 == user2);
     }
 }

@@ -6,10 +6,9 @@
     <!-- 配置properties-->
     <properties resource="jdbcConfig.properties"></properties>
 
-    <!--配置参数  开启Mybatis支持延迟加载-->
+    <!--开启二级缓存-->
     <settings>
-        <setting name="lazyLoadingEnabled" value="true"/>
-        <setting name="aggressiveLazyLoading" value="false"></setting>
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <!--使用typeAliases配置别名，它只能配置domain中类的别名 -->

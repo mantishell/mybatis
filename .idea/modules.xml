@@ -7,6 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/mybatis_03_dynamicSQL/mybatis_03_dynamicSQL.iml" filepath="$PROJECT_DIR$/mybatis_03_dynamicSQL/mybatis_03_dynamicSQL.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_04_one2many/mybatis_04_one2many.iml" filepath="$PROJECT_DIR$/mybatis_04_one2many/mybatis_04_one2many.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_05_many2many/mybatis_05_many2many.iml" filepath="$PROJECT_DIR$/mybatis_05_many2many/mybatis_05_many2many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_06_lazy/mybatis_06_lazy.iml" filepath="$PROJECT_DIR$/mybatis_06_lazy/mybatis_06_lazy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_07_cache/mybatis_07_cache.iml" filepath="$PROJECT_DIR$/mybatis_07_cache/mybatis_07_cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_08_annotation/mybatis_08_annotation.iml" filepath="$PROJECT_DIR$/mybatis_08_annotation/mybatis_08_annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_09_annoOne2Many/mybatis_09_annoOne2Many.iml" filepath="$PROJECT_DIR$/mybatis_09_annoOne2Many/mybatis_09_annoOne2Many.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_annotation_simple/mybatis_annotation_simple.iml" filepath="$PROJECT_DIR$/mybatis_annotation_simple/mybatis_annotation_simple.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_xml_simple/mybatis_xml_simple.iml" filepath="$PROJECT_DIR$/mybatis_xml_simple/mybatis_xml_simple.iml" />
     </modules>

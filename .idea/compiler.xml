@@ -6,13 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mybatis_07_cache" />
         <module name="mybatis_02_CRUD" />
-        <module name="mybatis_05_many2many" />
+        <module name="mybatis_09_annoOne2Many" />
+        <module name="mybatis_03_dynamicSQL" />
         <module name="mybatis_annotation_simple" />
         <module name="mybatis_01_dao" />
         <module name="mybatis_xml_simple" />
-        <module name="mybatis_03_dynamicSQL" />
+        <module name="mybatis_05_many2many" />
         <module name="mybatis_04_one2many" />
+        <module name="mybatis_08_annotation" />
+        <module name="mybatis_06_lazy" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +25,10 @@
       <module name="mybatis_03_dynamicSQL" target="1.5" />
       <module name="mybatis_04_one2many" target="1.5" />
       <module name="mybatis_05_many2many" target="1.5" />
+      <module name="mybatis_06_lazy" target="1.5" />
+      <module name="mybatis_07_cache" target="1.5" />
+      <module name="mybatis_08_annotation" target="1.5" />
+      <module name="mybatis_09_annoOne2Many" target="1.5" />
       <module name="mybatis_annotation_simple" target="1.5" />
       <module name="mybatis_xml_simple" target="1.5" />
     </bytecodeTargetLevel>

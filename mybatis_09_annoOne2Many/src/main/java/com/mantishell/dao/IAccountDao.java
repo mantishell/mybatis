@@ -19,7 +19,7 @@ public interface IAccountDao {
             @Result(id=true,column = "id",property = "id"),
             @Result(column = "uid",property = "uid"),
             @Result(column = "money",property = "money"),
-            @Result(property = "user",column = "uid",one=@One(select="com.itheima.dao.IUserDao.findById",fetchType= FetchType.EAGER))
+            @Result(property = "user",column = "uid",one=@One(select="com.mantishell.dao.IUserDao.findById",fetchType= FetchType.EAGER))
     })
     List<Account> findAll();
 

@@ -20,7 +20,7 @@ public interface IUserDao {
             @Result(column = "sex",property = "userSex"),
             @Result(column = "birthday",property = "userBirthday"),
             @Result(property = "accounts",column = "id",
-                    many = @Many(select = "com.itheima.dao.IAccountDao.findAccountByUid",
+                    many = @Many(select = "com.mantishell.dao.IAccountDao.findAccountByUid",
                             fetchType = FetchType.LAZY))
     })
     List<User> findAll();

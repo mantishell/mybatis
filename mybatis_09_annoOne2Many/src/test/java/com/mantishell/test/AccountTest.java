@@ -1,7 +1,7 @@
 package com.mantishell.test;
 
-import com.mantishell.dao.IUserDao;
-import com.mantishell.domain.User;
+import com.mantishell.dao.IAccountDao;
+import com.mantishell.domain.Account;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,18 +13,18 @@ import org.junit.Test;
 import java.io.InputStream;
 import java.util.List;
 
-public class AnnoCRUDTest {
+public class AccountTest {
     private InputStream in;
     private SqlSessionFactory factory;
     private SqlSession session;
-    private IUserDao userDao;
+    private IAccountDao accountDao;
 
     @Before
     public  void init()throws Exception{
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         factory = new SqlSessionFactoryBuilder().build(in);
         session = factory.openSession();
-        userDao = session.getMapper(IUserDao.class);
+        accountDao = session.getMapper(IAccountDao.class);
     }
 
     @After
@@ -36,27 +36,11 @@ public class AnnoCRUDTest {
 
     @Test
     public  void  testFindAll(){
-        List<User> users = userDao.findAll();
-        for(User user : users){
-            System.out.println("---每个用户的信息----");
-            System.out.println(user);
-            //System.out.println(user.getAccounts());
-        }
-    }
-
-    @Test
-    public void testFindOne(){
-        User user = userDao.findById(45);
-        System.out.println(user);
-        System.out.println(user.getAccounts());
-    }
-
-
-    @Test
-    public  void testFindByName(){
-        List<User> users = userDao.findUserByName("%mybatis%");
-        for(User user : users){
-            System.out.println(user);
+        List<Account> accounts = accountDao.findAll();
+        for(Account account : accounts){
+            System.out.println("----每个账户的信息-----");
+            System.out.println(account);
+            System.out.println(account.getUser());
         }
     }
 }

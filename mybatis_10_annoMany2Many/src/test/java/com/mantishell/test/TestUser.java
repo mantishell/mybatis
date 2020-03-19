@@ -1,6 +1,8 @@
 package com.mantishell.test;
 
+import com.mantishell.dao.IRoleDao;
 import com.mantishell.dao.IUserDao;
+import com.mantishell.domain.Role;
 import com.mantishell.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -13,7 +15,7 @@ import org.junit.Test;
 import java.io.InputStream;
 import java.util.List;
 
-public class AnnoCRUDTest {
+public class TestUser {
     private InputStream in;
     private SqlSessionFactory factory;
     private SqlSession session;
@@ -35,28 +37,14 @@ public class AnnoCRUDTest {
     }
 
     @Test
-    public  void  testFindAll(){
+    public void testFindAll(){
         List<User> users = userDao.findAll();
-        for(User user : users){
-            System.out.println("---每个用户的信息----");
-            System.out.println(user);
-            //System.out.println(user.getAccounts());
-        }
-    }
-
-    @Test
-    public void testFindOne(){
-        User user = userDao.findById(45);
-        System.out.println(user);
-        System.out.println(user.getAccounts());
-    }
-
-
-    @Test
-    public  void testFindByName(){
-        List<User> users = userDao.findUserByName("%mybatis%");
-        for(User user : users){
-            System.out.println(user);
+        for (User user : users) {
+            List<Role> roles = user.getRoles();
+            if (roles.size() > 0) {
+                System.out.println(user);
+                System.out.println(user.getRoles());
+            }
         }
     }
 }

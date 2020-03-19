@@ -11,52 +11,41 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
-import java.util.List;
 
-public class AnnoCRUDTest {
+public class SeondLevelCacheTest {
     private InputStream in;
     private SqlSessionFactory factory;
-    private SqlSession session;
-    private IUserDao userDao;
+
 
     @Before
     public  void init()throws Exception{
         in = Resources.getResourceAsStream("SqlMapConfig.xml");
         factory = new SqlSessionFactoryBuilder().build(in);
-        session = factory.openSession();
-        userDao = session.getMapper(IUserDao.class);
+
     }
 
     @After
     public  void destroy()throws  Exception{
-        session.commit();
-        session.close();
+
         in.close();
     }
 
     @Test
-    public  void  testFindAll(){
-        List<User> users = userDao.findAll();
-        for(User user : users){
-            System.out.println("---每个用户的信息----");
-            System.out.println(user);
-            //System.out.println(user.getAccounts());
-        }
-    }
-
-    @Test
     public void testFindOne(){
+        SqlSession session = factory.openSession();
+        IUserDao userDao = session.getMapper(IUserDao.class);
         User user = userDao.findById(45);
         System.out.println(user);
-        System.out.println(user.getAccounts());
-    }
+
+        session.close();//释放一级缓存
+
+        SqlSession session1 = factory.openSession();//再次打开session
+        IUserDao userDao1 = session1.getMapper(IUserDao.class);
+        User user1 = userDao1.findById(45);
+        System.out.println(user1);
 
 
-    @Test
-    public  void testFindByName(){
-        List<User> users = userDao.findUserByName("%mybatis%");
-        for(User user : users){
-            System.out.println(user);
-        }
+        session1.close();
+
     }
 }

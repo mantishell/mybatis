@@ -6,7 +6,7 @@ import org.apache.ibatis.mapping.FetchType;
 
 import java.util.List;
 
-@CacheNamespace(blocking = true)
+@CacheNamespace(blocking = true)//mybatis 基于注解方式实现配置二级缓存
 public interface IUserDao {
     /**
      * 查询所有用户

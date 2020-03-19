@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/mybatis_07_cache/mybatis_07_cache.iml" filepath="$PROJECT_DIR$/mybatis_07_cache/mybatis_07_cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_08_annotation/mybatis_08_annotation.iml" filepath="$PROJECT_DIR$/mybatis_08_annotation/mybatis_08_annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_09_annoOne2Many/mybatis_09_annoOne2Many.iml" filepath="$PROJECT_DIR$/mybatis_09_annoOne2Many/mybatis_09_annoOne2Many.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_10_annoMany2Many/mybatis_10_annoMany2Many.iml" filepath="$PROJECT_DIR$/mybatis_10_annoMany2Many/mybatis_10_annoMany2Many.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_annotation_simple/mybatis_annotation_simple.iml" filepath="$PROJECT_DIR$/mybatis_annotation_simple/mybatis_annotation_simple.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis_xml_simple/mybatis_xml_simple.iml" filepath="$PROJECT_DIR$/mybatis_xml_simple/mybatis_xml_simple.iml" />
     </modules>
